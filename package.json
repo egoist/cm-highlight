@@ -1,6 +1,6 @@
 {
   "name": "cm-highlight",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "use codemirror as a syntax highlighter",
   "repository": {
     "url": "egoist/cm-highlight",
