@@ -1,6 +1,13 @@
 import CodeMirror from 'codemirror'
 import 'codemirror/addon/runmode/runmode'
 
+const escape = input => input
+  .replace(/&/g, '&amp;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+
 export default function (string, {
   mode,
   tabSize = 2
@@ -36,8 +43,9 @@ export default function (string, {
 
     if (style) {
       const className = 'cm-' + style.replace(/ +/g, 'cm-')
-      content = `<span class="${className}">${content}</span>`
+      content = `<span class="${className}">${escape(content)}</span>`
     }
+
     html += content
   })
 
